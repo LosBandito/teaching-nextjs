@@ -1,0 +1,15 @@
+Tables
+product
+
+id int
+name string
+description string
+price int
+amount int
+availability bool
+date_added date
+
+
+
+
+

@@ -10,7 +10,8 @@
     "db:migrate:dev:latest": "ts-node -T lib/scripts/migrations/latest.ts",
     "db:migrate:dev:new": "ts-node -T lib/scripts/migrations/new.ts",
     "db:migrate:dev:down": "ts-node -T lib/scripts/migrations/down.ts",
-    "db:codegen:dev": "kysely-codegen --camel-case --url data/app.db --out-file lib/db/db.d.ts"
+    "db:codegen:dev": "kysely-codegen --camel-case --url data/app.db --out-file src/lib/db.d.ts",
+    "db:seed:dev": "ts-node -T src/components/seed-db.ts"
   },
   "dependencies": {
     "@types/node": "20.6.0",
