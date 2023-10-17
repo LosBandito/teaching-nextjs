@@ -1,6 +1,9 @@
 
-import Image from 'next/image'
+import { Products, StaticMessages } from "@/components/fetch-data";
+import { DataList } from "@/components/data-list";
 
 export default function Home() {
-  return <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+  return(
+    <StaticMessages />
+  )
 }

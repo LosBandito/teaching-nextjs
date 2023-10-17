@@ -1,0 +1,34 @@
+[
+  {
+    "category": 1,
+    "name": "iPhone 13",
+    "img": "iphone13.jpg",
+    "description": "The latest iPhone with a stunning display and powerful performance.",
+    "price": 999.99,
+    "amount": 50
+  },
+  {
+    "category": 2,
+    "name": "Samsung Galaxy S21",
+    "img": "galaxys21.jpg",
+    "description": "A flagship Android smartphone with a fantastic camera and fast processor.",
+    "price": 799.99,
+    "amount": 30
+  },
+  {
+    "category": 1,
+    "name": "Google Pixel 6",
+    "img": "pixel6.jpg",
+    "description": "A top-notch Google smartphone known for its camera quality and pure Android experience.",
+    "price": 899.99,
+    "amount": 40
+  },
+  {
+    "category": 3,
+    "name": "OnePlus 9",
+    "img": "oneplus9.jpg",
+    "description": "A high-performance OnePlus phone with a sleek design and fast charging.",
+    "price": 749.99,
+    "amount": 25
+  }
+]
