@@ -1,6 +1,5 @@
 import { createDB } from '../lib/db'
 import { faker } from '@faker-js/faker'
-
 const fs = require('fs').promises
 
 async function readJson() {
