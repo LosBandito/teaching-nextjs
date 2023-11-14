@@ -17,6 +17,7 @@ export interface Product {
 
 export interface Rating {
   productId: number;
+  ratingUsername: string;
   ratingStars: number;
   ratingComment: string;
 }

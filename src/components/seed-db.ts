@@ -46,6 +46,7 @@ async function generateReviews(db) {
     const random = Math.floor(Math.random() * products.length)
     reviews.push({
       productId: products[random].id,
+      ratingUsername: faker.internet.userName(),
       ratingStars: faker.number.int({ min: 1, max: 5 }),
       ratingComment: faker.lorem.paragraph(),
     })
