@@ -46,7 +46,7 @@ export default async function ProductDetail(props: { params: { id: string } }) {
       >
         {reviews.map((review) => (
           <div key={review.productId}>
-            <p>User {review.ratingUsername}</p>
+            <p>User {review.ratingUsernamef}</p>
             <p>{review.ratingStars} out of 5 stars</p>
             <h3>Comment</h3>
             <p>{review.ratingComment}</p>
