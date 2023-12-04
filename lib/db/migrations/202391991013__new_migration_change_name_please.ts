@@ -2,11 +2,10 @@ import { sql, Kysely } from 'kysely'
 
 export async function up(db: Kysely<unknown>): Promise<void> {
   await sql`
-      create table Product(
+      create table product(
                               id          integer primary key autoincrement,
                               category integer not null,
                               name        text    not null,
-                              img         text    not null,
                               description text    not null,
                               price       integer  not null,
                               amount      integer not null,
