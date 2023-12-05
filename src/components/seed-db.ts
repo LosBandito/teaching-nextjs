@@ -23,7 +23,7 @@ async function createData(
       }
 ) {
   const data = []
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     data.push({
       category: faker.number.int({ min: 1, max: 10 }),
       name: faker.commerce.productName(),

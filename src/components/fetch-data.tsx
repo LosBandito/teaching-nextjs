@@ -3,13 +3,18 @@ import React from 'react'
 import link from 'next/link'
 import Link from 'next/link'
 
-async function getProducts() {
+async function getProducts(page: number) {
+  console.log(page)
+  const offset = (page - 1) * 9
+
   const db = createDB()
   const products = await db
     .selectFrom('product')
     .leftJoin('images', 'product.id', 'images.productId')
     .select(['product.id', 'product.name', 'product.price', 'images.image'])
     .groupBy(['product.id'])
+    .limit(9)
+    .offset(offset)
     .execute()
   return products
 }
@@ -44,8 +49,12 @@ function Product({
   )
 }
 
-export async function StaticMessages() {
-  const product = await getProducts()
+type Props = {
+  page: number
+}
+
+export async function StaticMessages(props: Props) {
+  const product = await getProducts(props.page)
   return (
     <div className="grid grid-cols-3 grid-rows-5 gap-4">
       {product.map((product) => (
