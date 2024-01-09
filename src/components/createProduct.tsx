@@ -9,6 +9,8 @@ type FormData = {
   price: number
 }
 
+
+
 export function ProductForm() {
   const { register, handleSubmit } = useForm<FormData>()
   const onSubmit = handleSubmit(async (data) => {

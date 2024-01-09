@@ -89,10 +89,10 @@ export default async function ProductDetail(props: { params: { id: number } }) {
       >
         {reviews.map((review) => (
           <div key={review.productId}>
-            <p className={'block text-sm text-gray-500 dark:text-gray-400'}>User {review.ratingUsername}</p>
             <p className={'bg-blue-700 text-white text-sm font-semibold inline-flex items-center p-1.5 rounded'}>
               {review.ratingStars}
             </p>
+            <p className={'block text-sm text-gray-500 dark:text-gray-400'}>User {review.ratingUsername}</p>
             <p className={'text-xl font-bold text-gray-900 dark:text-white'}>{review.ratingComment}</p>
             <br />
           </div>

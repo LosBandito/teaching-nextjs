@@ -22,6 +22,7 @@
     "better-sqlite3": "^8.6.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
+    "fs": "^0.0.1-security",
     "kysely": "^0.26.3",
     "next": "13.4.19",
     "postcss": "8.4.29",
