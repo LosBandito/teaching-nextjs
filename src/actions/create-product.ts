@@ -3,6 +3,7 @@
 import { createDB } from '@/lib/db'
 import { faker } from '@faker-js/faker'
 import { redirect } from 'next/navigation'
+import { revalidatePath } from "next/cache";
 
 type ProductParams = {
   name: string
@@ -24,5 +25,5 @@ export async function createProduct(product: ProductParams) {
     .returningAll()
     .executeTakeFirstOrThrow()
 
-  redirect(`/product/${newProduct.id}`)
+  revalidatePath(`/product/${newProduct.id}`)
 }
