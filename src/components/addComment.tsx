@@ -65,22 +65,22 @@ export function CommentForm({ productId }: { productId: number }) {
           <label htmlFor="stars" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Select your rating
           </label>
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <div className={'flex items-center me-4'}>
-                  <label key={i} className={'ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'}>
-                    <input
-                      type="radio"
-                      value={i + 1}
-                      className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      {...register('stars')}
-                      required={true}
-                    />
-                    {i + 1}
-                  </label>
-                </div>
-              ))}
-            </div>
+          <div className="flex">
+            {[...Array(5)].map((_, i) => (
+              <div className={'flex items-center me-4'}>
+                <label key={i} className={'ms-2 text-sm font-medium text-gray-900 dark:text-gray-300'}>
+                  <input
+                    type="radio"
+                    value={i + 1}
+                    className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    {...register('stars')}
+                    required={true}
+                  />
+                  {i + 1}
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mb-5">

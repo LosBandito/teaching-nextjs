@@ -28,5 +28,5 @@ export async function editProduct(product: ProductParams) {
     .executeTakeFirstOrThrow()
 
   revalidatePath(`/product/${product.productId}`)
-  redirect(`/product/${product.productId  }`)
+  redirect(`/product/${product.productId}`)
 }

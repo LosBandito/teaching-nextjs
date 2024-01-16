@@ -1,8 +1,9 @@
 import { createDB } from '@/lib/db'
 import { id } from 'postcss-selector-parser'
-import {CommentForm} from "@/components/addComment";
-import { ProductForm } from "@/components/createProduct";
-import React from "react";
+import { CommentForm } from '@/components/addComment'
+import { ProductForm } from '@/components/createProduct'
+import React from 'react'
+import { EditProductReview } from '@/components/EditProductReview'
 
 async function getProductDetail(id: number) {
   const db = createDB()
@@ -69,7 +70,11 @@ export default async function ProductDetail(props: { params: { id: number } }) {
           <img src={photo.image} />
         </div>
       ))}
-      <div className={"w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"}>
+      <div
+        className={
+          'w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700'
+        }
+      >
         {product.map((product) => (
           <div key={product.id}>
             <h1 className={'text-4xl font-extrabold dark:text-white'}>{product.name}</h1>
@@ -77,7 +82,7 @@ export default async function ProductDetail(props: { params: { id: number } }) {
             <p className={'b-4 text-lg font-normal text-gray-500 dark:text-gray-400'}>
               Average rating of the product : {averageRating}
             </p>
-            <p className={"text-5xl font-extrabold tracking-tight"}>{product.price}$</p>
+            <p className={'text-5xl font-extrabold tracking-tight'}>{product.price}$</p>
           </div>
         ))}
       </div>
@@ -89,12 +94,12 @@ export default async function ProductDetail(props: { params: { id: number } }) {
       >
         {reviews.map((review) => (
           <div key={review.productId}>
-            <p className={'bg-blue-700 text-white text-sm font-semibold inline-flex items-center p-1.5 rounded'}>
-              {review.ratingStars}
-            </p>
-            <p className={'block text-sm text-gray-500 dark:text-gray-400'}>User {review.ratingUsername}</p>
-            <p className={'text-xl font-bold text-gray-900 dark:text-white'}>{review.ratingComment}</p>
-            <br />
+            <EditProductReview
+              productId={review.productId}
+              ratingUsername={review.ratingUsername}
+              ratingStars={review.ratingStars}
+              ratingComment={review.ratingComment}
+            />
           </div>
         ))}
       </div>
