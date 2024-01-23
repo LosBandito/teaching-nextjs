@@ -4,6 +4,7 @@ import { CommentForm } from '@/components/addComment'
 import { ProductForm } from '@/components/createProduct'
 import React from 'react'
 import { EditProductReview } from '@/components/EditProductReview'
+import { EditPhoto } from '@/components/editPhoto'
 
 async function getProductDetail(id: number) {
   const db = createDB()
