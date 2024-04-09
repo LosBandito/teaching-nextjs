@@ -2,6 +2,7 @@ import { createDB } from '@/lib/db'
 import React from 'react'
 import link from 'next/link'
 import Link from 'next/link'
+import { AddToCardBtn } from "@/components/AddToCardBtn";
 
 async function getProducts(page: number) {
   console.log(page)
@@ -60,6 +61,7 @@ function Product({
       >
         Edit Product
       </Link>
+      <AddToCardBtn id={id}></AddToCardBtn>
     </div>
   )
 }

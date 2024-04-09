@@ -37,6 +37,7 @@
     "@faker-js/faker": "^8.1.0",
     "@next/eslint-plugin-next": "^13.4.19",
     "@types/better-sqlite3": "^7.6.4",
+    "daisyui": "^4.7.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "kysely-codegen": "^0.10.1",
