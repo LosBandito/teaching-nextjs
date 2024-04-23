@@ -9,13 +9,21 @@ type Props = {
 
 export function ShoppingCartProvider({ children }: Props) {
   const [items, setItems] = useState<number[]>(JSON.parse(localStorage.getItem('items') || '[]'))
-  const [itemCounts, setItemCounts] = useState<{ [key: number]: number }>({})
+  const [itemCounts, setItemCounts] = useState<{ [key: number]: number }>(calculateItemCounts(items))
+
+  function calculateItemCounts(items: number[]): { [key: number]: number } {
+    return items.reduce(
+      (counts, item) => {
+        counts[item] = (counts[item] || 0) + 1
+        return counts
+      },
+      {} as { [key: number]: number }
+    )
+  }
 
   const addItem = (item: number) => {
     const newItems = [...items, item]
     setItems(newItems)
-    console.log("Toto su itemy")
-    console.log(items)
     setItemCounts((prevCounts) => ({ ...prevCounts, [item]: (prevCounts[item] || 0) + 1 }))
     localStorage.setItem('items', JSON.stringify(newItems))
   }
@@ -49,8 +57,14 @@ export function ShoppingCartProvider({ children }: Props) {
     localStorage.setItem('items', JSON.stringify(newItems))
   }
 
+  const removeAllItems = () => {
+    setItems([])
+    setItemCounts({})
+    localStorage.removeItem('items')
+  }
+
   return (
-    <ShoppingCartContext.Provider value={{ items, addItem, removeItem, trashItem, itemCounts }}>
+    <ShoppingCartContext.Provider value={{ items, addItem, removeItem, trashItem, itemCounts, removeAllItems }}>
       {children}
     </ShoppingCartContext.Provider>
   )

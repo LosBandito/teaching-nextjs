@@ -6,6 +6,7 @@ type ShoppingCart = {
   removeItem: (item: number) => void
   trashItem: (item: number) => void
   itemCounts: { [key: number]: number }
+  removeAllItems: () => void
 }
 
 export const ShoppingCartContext = createContext<ShoppingCart>({
@@ -14,4 +15,5 @@ export const ShoppingCartContext = createContext<ShoppingCart>({
   removeItem: (item) => {},
   trashItem: (item) => {},
   itemCounts: {},
+  removeAllItems: () => {},
 })
