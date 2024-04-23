@@ -2,10 +2,17 @@
 import { useContext, useEffect, useState } from 'react'
 import { ShoppingCartContext } from '@/components/shoppingCart'
 import { GetProduct } from '@/actions/get-products'
+import { IoIosRemoveCircleOutline } from 'react-icons/io'
+import { IoBanOutline } from 'react-icons/io5'
+import { IoAddCircleOutline } from 'react-icons/io5'
 
 export function BigShoppingCart() {
   const { items, itemCounts } = useContext(ShoppingCartContext)
   const [productData, setProductData] = useState([])
+
+  const { addItem } = useContext(ShoppingCartContext)
+  const { removeItem } = useContext(ShoppingCartContext)
+  const { trashItem } = useContext(ShoppingCartContext)
 
   useEffect(() => {
     const fetchProductData = async () => {
@@ -32,6 +39,9 @@ export function BigShoppingCart() {
           <th className={'px-6 py-3'}>Product Name</th>
           <th className={'px-6 py-3'}>Product Description</th>
           <th className={'px-6 py-3'}>Price</th>
+          <th className={'px-6 py-3'}></th>
+          <th className={'px-6 py-3'}></th>
+          <th className={'px-6 py-3'}></th>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +57,22 @@ export function BigShoppingCart() {
             <td className={'px-6 py-4'}>{product.name}</td>
             <td className={'px-6 py-4'}>{product.description}</td>
             <td className={'px-6 py-4'}>{product.price}</td>
+
+            <td className={'px-6 py-4'}>
+              <button onClick={() => addItem(product.id)} className={'text-sky-500'}>
+                <IoAddCircleOutline />
+              </button>
+            </td>
+            <td className={'px-6 py-4'}>
+              <button onClick={() => removeItem(product.id)} className={'text-red-500'}>
+                <IoIosRemoveCircleOutline />
+              </button>
+            </td>
+            <td className={'px-6 py-4'}>
+              <button onClick={() => trashItem(product.id)} className={'text-red-500'}>
+                <IoBanOutline />
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
