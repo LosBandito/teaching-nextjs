@@ -35,12 +35,9 @@ export function BigShoppingCart() {
 
   const processOrder = async () => {
     const order = {
-      total_count: Object.values(itemCounts).reduce((acc, count) => acc + count, 0),
+      items: itemCounts,
       total_price: productData.reduce((acc, product) => acc + product.price * (itemCounts[product.id] || 0), 0),
-    }
-
-    if (order.total_count === 0) {
-      return
+      total_count: productData.reduce((acc, product) => acc + (itemCounts[product.id] || 0), 0),
     }
 
     console.log(order)

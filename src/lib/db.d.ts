@@ -10,6 +10,13 @@ export interface Images {
   image: string;
 }
 
+export interface OrderProducts {
+  orderId: number;
+  productId: number;
+  productCount: number;
+  productPrice: number;
+}
+
 export interface Orders {
   id: Generated<number | null>;
   totalPrice: number;
@@ -35,6 +42,7 @@ export interface Rating {
 
 export interface DB {
   images: Images;
+  orderProducts: OrderProducts;
   orders: Orders;
   product: Product;
   rating: Rating;
